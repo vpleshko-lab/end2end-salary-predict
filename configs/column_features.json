@@ -1,0 +1,9 @@
+{
+    "columns": ["category", "title_group", "english_level", "it_experience_years"],
+    "types": {
+        "category": "categorical",
+        "title_group": "categorical",
+        "english_level": "categorical",
+        "it_experience_years": "numeric"
+    }
+}
