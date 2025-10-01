@@ -95,14 +95,3 @@ class SalaryPredictor:
         self.log_prediction_csv(input_data, preds=result)
 
         return result
-
-test_input = {'category': 'Analyst',
-              'title_group': 'Mid-level',
-              'english_level': 'Pre-Intermediate',
-              'it_experience_years': 4.0}
-test_df = pd.DataFrame([test_input])
-
-predictor = SalaryPredictor()
-
-prediction = predictor.predict(test_df)
-print(prediction)
