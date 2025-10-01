@@ -1,8 +1,9 @@
 import pandas as pd
 from src.scripts.prediction import SalaryPredictor
 
+model = SalaryPredictor()
+
 def test_single_output():
-    model = SalaryPredictor()
 
     test_data = {'category': 'Analyst',
                  'title_group': 'Mid-level',
