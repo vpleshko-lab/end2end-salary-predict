@@ -6,16 +6,13 @@ from src.scripts.prediction import SalaryPredictor
 
 model = SalaryPredictor()
 
-# reading allowed json values
 with open('configs/allowed_values.json', 'r') as json_file:
     json_data = json.load(json_file)
 
-    # split categorical data
     category_data = list(json_data['category'])
     title_data = list(json_data['title_group'])
     english_level_data = list(json_data['english_level'])
 
-# main predict function
 def gradio_predict(category: str,
                    title_group: str,
                    english_level: str,
@@ -31,7 +28,6 @@ def gradio_predict(category: str,
 
     return prediction
 
-# vizualization block
 with gr.Blocks(title='Machine Learning Project: IT Salary prediction') as demo:
     gr.Markdown(
         """
@@ -67,7 +63,6 @@ with gr.Blocks(title='Machine Learning Project: IT Salary prediction') as demo:
         with gr.Column(scale=1):
             result_out = gr.Number(label='Predicted salary (USD)', precision=0)
 
-# submit button
     submit_btn.click(
         fn=gradio_predict,
         inputs=[category_in, title_in, english_in, experience_in],
