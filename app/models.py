@@ -3,10 +3,10 @@ from pydantic import BaseModel
 
 # input
 class InputData(BaseModel):
-    category: str
-    title_group: str
+    job_category: str
+    seniority_level: str
     english_level: str
-    it_experience_years: int
+    experience_years: int
 
 # output
 class OutputData(BaseModel):

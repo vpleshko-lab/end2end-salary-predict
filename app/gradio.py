@@ -9,19 +9,19 @@ model = SalaryPredictor()
 with open('configs/allowed_values.json', 'r') as json_file:
     json_data = json.load(json_file)
 
-    category_data = list(json_data['category'])
-    title_data = list(json_data['title_group'])
+    category_data = list(json_data['job_category'])
+    title_data = list(json_data['seniority_level'])
     english_level_data = list(json_data['english_level'])
 
-def gradio_predict(category: str,
-                   title_group: str,
+def gradio_predict(job_category: str,
+                   seniority_level: str,
                    english_level: str,
-                   it_experience_years: int):
+                   experience_years: int):
 
-    input_data = {'category': category,
-                  'title_group': title_group,
+    input_data = {'job_category': job_category,
+                  'seniority_level': seniority_level,
                   'english_level': english_level,
-                  'it_experience_years': it_experience_years}
+                  'experience_years': experience_years}
 
     input_data = pd.DataFrame([input_data])
     prediction = model.predict(input_data)[0]
@@ -39,7 +39,7 @@ with gr.Blocks(title='Machine Learning Project: IT Salary prediction') as demo:
     with gr.Row():
         with gr.Column(scale=1):
             category_in = gr.Dropdown(
-                label='Category',
+                label='Job Category',
                 choices=category_data,
                 info='Enter professional category'
             )
