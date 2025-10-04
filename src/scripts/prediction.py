@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 
 class SalaryPredictor:
-    def __init__(self, model_path = MODELS_DIR/"best_model.pkl"):
+    def __init__(self, model_path = MODELS_DIR/"best_model_v2.pkl"):
         self.model_path = model_path
         self.model = None
         self.metadata = None
@@ -28,7 +28,7 @@ class SalaryPredictor:
         try:
             # model and metadata
             self.model = joblib.load(model_path)
-            self.metadata = joblib.load(MODELS_DIR/"model_metadata.pkl")
+            self.metadata = joblib.load(MODELS_DIR/"model_metadata_v2.pkl")
 
             # configs and additional info about them
             self.config_values = json.load(open('configs/allowed_values.json'))

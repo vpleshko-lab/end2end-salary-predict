@@ -1,0 +1,14 @@
+{
+  "columns": [
+    "job_category",
+    "seniority_level",
+    "english_level",
+    "experience_years"
+  ],
+  "types": {
+    "job_category": "categorical",
+    "seniority_level": "categorical",
+    "english_level": "categorical",
+    "experience_years": "numeric"
+  }
+}
