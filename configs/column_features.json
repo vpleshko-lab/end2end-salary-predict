@@ -1,0 +1,8 @@
+{
+  "columns": [
+    "job_category",
+    "seniority_level",
+    "english_level",
+    "experience_years"
+  ]
+}

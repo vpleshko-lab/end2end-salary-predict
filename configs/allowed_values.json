@@ -1,0 +1,31 @@
+{
+  "category": [
+    "Software Engineering",
+    "QA",
+    "Marketing",
+    "Product & Project management",
+    "Design",
+    "Data Science & Machine Learning",
+    "HR",
+    "IT Operations",
+    "Business",
+    "Security"
+  ],
+  "title": [
+    "C-level",
+    "Intern",
+    "Junior",
+    "Lead",
+    "Management",
+    "Middle",
+    "Senior",
+    "Staff+"
+  ],
+  "english_level": [
+    "Advanced",
+    "Intermediate",
+    "Upper-Intermediate",
+    "Pre-Intermediate",
+    "Elementary"
+  ]
+}
