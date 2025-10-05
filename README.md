@@ -24,7 +24,7 @@
 - Формат: CSV
 
 ## Project Structure
-
+```css
 ├── app
 │   ├── api.py # FastAPI модуль
 │   ├── gradio.py # інтерфейс для передбачення
@@ -43,7 +43,7 @@
 │   └── utils
 |       └── paths.py # шляхи
 ├── tests # тестування
-
+```
 ---
 ## Api interface
 
@@ -74,14 +74,14 @@ python -m app.gradio
 ```
 
 ## Modeling Approach
-Тип задачі:
+### Тип задачі:
 - регресія (прогнозування зарплат)
-Пайплайн:
- 1. Масштабний препроцесинг та очищення даних:
-    Уніфікація фіч seniority_level → experience_years і seniority_level → salary_usd
-(для боротьби з фейковими даними)
- 2. Застосування frequency & target encoding для категоріальних фіч (створено з допомогою Claude AI)
- 3. Тренування багатьох алгоритмів регресії через циклічний GridSearch, автоматичне порівняння продуктивності та автоматичний експорт найефективнішої моделі.
+### Пайплайн:
+ - Масштабний препроцесинг та очищення даних:
+    - Уніфікація фіч seniority_level → experience_years і seniority_level → salary_usd (для боротьби з фейковими даними)
+ - Застосування frequency & target encoding для категоріальних фіч (створено з допомогою Claude AI)
+ - Тренування багатьох алгоритмів регресії через циклічний GridSearch,
+ -автоматичне порівняння продуктивності та автоматичний експорт найефективнішої моделі.
 
 ## Evaluation
 Метрики для найкращої моделі (RandomForest):
@@ -91,5 +91,5 @@ python -m app.gradio
 
 ## Examples
 
-[![Gradio](screenshots/demo_001.png)]
+![Gradio](screenshots/demo_001.png)
 ![Fast API](screenshots/demo_003.png)
