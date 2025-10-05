@@ -1,15 +1,15 @@
 {
   "job_category": [
     "Software Engineering",
-    "QA",
-    "Marketing",
-    "Product & Project management",
-    "Design",
-    "Data Science & Machine Learning",
-    "HR",
+    "QA & Testing",
+    "Marketing & Sales",
+    "Product & Project Management",
+    "Design & Creative",
+    "Data & Machine Learning",
+    "Human Resources & People Operations",
     "IT Operations",
-    "Business",
-    "Security"
+    "Business/Commercial Operations",
+    "Security & Compliance"
   ],
   "seniority_level": [
     "C-level",
