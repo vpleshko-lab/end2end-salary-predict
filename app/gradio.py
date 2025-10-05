@@ -28,34 +28,36 @@ def gradio_predict(job_category: str,
 
     return prediction
 
-with gr.Blocks(title='Machine Learning Project: IT Salary prediction') as demo:
+with gr.Blocks(title='Machine Learning Project: IT Salary Prediction') as demo:
     gr.Markdown(
         """
         Salary Prediction App\n
-        Enter the details below to get a salary prediction.
+        Enter the details below to get an estimated salary.
         """
     )
 
     with gr.Row():
         with gr.Column(scale=1):
             category_in = gr.Dropdown(
-                label='Job Category',
-                choices=category_data,
-                info='Enter professional category'
+                label='Job Category', # назва
+                choices=category_data, # вибірка даних
+                info='Select the professional category', # інфо для користувача
             )
             title_in = gr.Dropdown(
-                label='Position level',
+                label='Seniority level',
                 choices=title_data,
-                info='Enter position level'
+                info='Select the seniority level of the position',
             )
             english_in = gr.Dropdown(
                 label='English level',
                 choices=english_level_data,
-                info='Enter your english level'
+                info='Select your English proficiency level',
             )
             experience_in = gr.Number(
                 label='Experience years',
-                info='Enter experience years'
+                info='Enter your total years of professional experience',
+                value=0,
+                precision=1
             )
 
             submit_btn = gr.Button("Predict Salary", variant='primary')
