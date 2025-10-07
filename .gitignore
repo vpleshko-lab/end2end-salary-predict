@@ -26,6 +26,6 @@ logs/
 
 # data
 data/
-
+!src/data/
 # thrash
 thrash/
