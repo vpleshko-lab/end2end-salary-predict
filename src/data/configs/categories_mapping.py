@@ -46,6 +46,7 @@ JOB_CATEGORY_MAPPING = {
     'Mechanical Design & Creative & Creative & Creative Engineer': 'Software Engineering',
     'Analog engineer (IC design)': 'Software Engineering',
     'TechOps Engineer': 'Software Engineering',
+    'Mechanical Design Engineer': 'Software Engineering',
 
     # DATA SCIENCE & ML
     'Data Analyst': 'Data & Machine Learning',
