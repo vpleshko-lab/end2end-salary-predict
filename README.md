@@ -10,7 +10,7 @@
 - [API Interface](#api-interface)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Modeling Approach](#modeling-approach)
+- [Modeling Approach](#technical-overview--pipeline-architecture)
 - [Evaluation](#evaluation)
 - [Results](#results)
 - [Examples](#examples)
@@ -20,7 +20,7 @@
 - Демонстрація практичних навичок реалізації повного циклу ML-проєкту, включно з preprocessing, feature engineering, тренуванням, деплоєм моделі та API/Gradio інтерфейсом.
 
 ## Dataset
-- Джерело: [DOU](https://dou.ua)
+- Джерело: [DOU](https://dou.ua) | [Data-link](https://github.com/devua/csv/blob/master/salaries/2025_june_raw.csv)
 - Обсяг: ~11,000 сирих записів, після очищення ~3,000
 - Формат: CSV
 - Основні колонки: `job_category`, `seniority_level`, `english_level`, `experience_years`, `salary_usd`
