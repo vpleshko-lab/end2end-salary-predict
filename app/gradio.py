@@ -2,7 +2,7 @@ import gradio as gr
 import pandas as pd
 import json
 
-from src.scripts.prediction import SalaryPredictor
+from models.salary_predictor import SalaryPredictor
 
 model = SalaryPredictor()
 

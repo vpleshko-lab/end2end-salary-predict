@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import pandas as pd
 from app.schemas import InputData, OutputData
-from src.scripts.prediction import SalaryPredictor
+from models.salary_predictor import SalaryPredictor
 
 app = FastAPI(title="IT Salary Prediction API")
 model = SalaryPredictor()
