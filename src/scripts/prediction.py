@@ -15,27 +15,26 @@ logging.basicConfig(level=logging.INFO,
 logger = logging.getLogger(__name__)
 
 class SalaryPredictor:
-    def __init__(self, model_path = MODELS_DIR/"best_model_v2.pkl"):
+    def __init__(self, model_path = MODELS_DIR/"best_model.pkl"):
         self.model_path = model_path
         self.model = None
         self.metadata = None
         self.config_values = None
         self.config_features = None
         self.feature_cols = None
-        self.logs_path = LOGS_DIR / "prediction_log.csv"
 
         # load
         try:
             # model and metadata
             self.model = joblib.load(model_path)
-            self.metadata = joblib.load(MODELS_DIR/"model_metadata_v2.pkl")
+            self.metadata = joblib.load(MODELS_DIR/"model_metadata.pkl")
 
             # configs and additional info about them
             self.config_values = json.load(open('configs/allowed_values.json'))
             self.config_features = json.load(open('configs/column_features.json'))
             self.feature_cols = self.config_features['columns']
             logging.info("Model, metadata and configs succesfully loaded.")
-        except FileNotFoundError:
+        except FileNotFoundError as e:
             logging.error(f"Required file not found: {e.filename}")
             raise
         except Exception as e:
@@ -72,14 +71,6 @@ class SalaryPredictor:
 
         return input_data
 
-    def log_prediction_csv(self, input_data: pd.DataFrame, preds: np.ndarray):
-        """Базове логування передбачень """
-        log_df = input_data.copy()
-        log_df['prediction'] = preds
-        log_df['timestamp'] = datetime.now(UTC).isoformat()
-        log_df.to_csv(self.logs_path, mode='a', header=not os.path.exists(self.logs_path), index=False)
-
-
     def predict(self, input_data):
         """
         input data: pd.DataFrame, вже підготовлені дані у форматі в якому очікує модель
@@ -92,6 +83,5 @@ class SalaryPredictor:
 
         result = np.round(result).astype(int)
         result = np.clip(result, 0, None) # limits of predict
-        self.log_prediction_csv(input_data, preds=result)
 
         return result
