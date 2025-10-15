@@ -1,0 +1,28 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: predictor-api
+    command: ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+  gradio:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: predictor-gradio
+    command: ["python", "-m", "app.gradio"]
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
+    depends_on:
+      - api
+
+networks:
+  default:
+    driver: bridge

@@ -1,0 +1,14 @@
+# .dockerignore
+__pycache__/
+*.pyc
+.git/
+.env
+*.log
+.vscode/
+node_modules/
+.DS_Store
+*.ipynb
+
+# my local ignore
+notebooks/
+screenshots/
