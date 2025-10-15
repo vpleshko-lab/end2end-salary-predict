@@ -192,6 +192,8 @@ def export_dataframe(df: pd.DataFrame,
     df = sort_features(df)
 
     if save:
+        data_dir = DATA_DIR
+        data_dir.mkdir(exist_ok=True)
         path = DATA_DIR / "processed/model_input_df.csv"
         df.to_csv(path, index=False)
 
