@@ -29,6 +29,7 @@
 ```css
 ├── app
 │   ├── api.py          # API для передбачення (FastAPI)
+│   ├── Dockerfile      # Інструкції для Докеру
 │   ├── gradio.py       # Веб-інтерфейс Gradio для інтерактивного тестування
 │   └── schemas.py      # Pydantic-схеми для валідації запитів/відповідей
 │
@@ -82,7 +83,9 @@
 ├── requirements.txt      # Залежності проєкту
 ├── requirements.in       # Базові пакети перед компіляцією у .txt
 ├── README.md
-└── logs/                 # Файли логів виконання
+├── docker-compose.yml    # центральний файл для оркестрації контейнеризації
+├── .env                  # конфігураційні змінні для контейнерів
+
 
 ```
 ---
@@ -117,6 +120,27 @@ python -m app.gradio
 ```
 - Локальний інтерфейс: http://127.0.0.1:7860
 
+### Docker та контейнеризація
+
+#### Побудова та запуск сервісів
+
+```bash
+# Скопіювати шаблон у локальний файл
+cp .env.example .env
+
+# Створити Docker-образи без запуску контейнерів
+docker compose build
+
+# Побудувати (якщо потрібно) та запустити всі сервіси (api та gradio)
+docker compose up
+
+# Запустити окремий сервіс за назвою
+docker compose up <service_name>
+
+# Зупинити всі запущені контейнери
+docker compose down
+```
+
 ## Technical Overview & Pipeline Architecture
 ### Тип задачі
 - Регресія: прогнозування рівня зарплати в ІТ-сфері України.
@@ -138,13 +162,18 @@ python -m app.gradio
 - Валідація вхідних запитів через Pydantic-схеми (schemas.py).
 - Модульні тести для пайплайну та API.
 - Збереження артефактів (best_model.pkl, preprocessor.pkl, model_metadata.pkl) для швидкого деплою.
-- **Проєкт побудовано за принципами відтворюваного, модульного та продакшн-орієнтованого ML-процесу, що відповідає стандартам інженерного рівня (data → model → API → UI)**.
+5. Docker та контейнеризація
+- Docker Compose використовується для побудови та запуску всіх сервісів проєкту (api, gradio).
+- Сервіси та ролі:
+   - `api` – FastAPI бекенд, який обробляє запити та виконує інференс моделей (best_model.pkl).
+   - `gradio` – інтерфейс користувача для взаємодії з моделлю через веб.
+6. **Додатково**:
+-  **Проєкт побудовано за принципами відтворюваного, модульного та продакшн-орієнтованого ML-процесу, що відповідає стандартам інженерного рівня (data → model → API → UI)**.
 ## Evaluation
 Метрики для найкращої моделі (HistGBM):
 - R² = 0.78
 
 ## Examples
 
-![Gradio](screenshots/demo_002.png)
-![Fast API](screenshots/demo_003.png)
+<video controls src="screenshots/demo_rec_001.mov" title="FastAPI & Gradio usage demo"></video>
 ![Logging](screenshots/demo_004.png)
