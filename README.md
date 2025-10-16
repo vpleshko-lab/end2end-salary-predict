@@ -175,5 +175,6 @@ docker compose down
 
 ## Examples
 
-<video controls src="screenshots/demo_rec_001.mov" title="FastAPI & Gradio usage demo"></video>
+![FastAPI & Gradio usage demo](https://youtu.be/0dzTBEz7FS0)
+---
 ![Logging](screenshots/demo_004.png)
