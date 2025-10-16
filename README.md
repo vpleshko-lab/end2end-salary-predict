@@ -174,8 +174,9 @@ docker compose down
 - R² = 0.78
 
 ## Examples
+Демонстрація використання FastAPI & Gradio
 
-[![FastAPI & Gradio usage demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=0dzTBEz7FS0)
+https://github.com/user-attachments/assets/057b7dd8-2cea-43f8-bd09-73787755760b
 
 ---
 ![Logging](screenshots/demo_004.png)
