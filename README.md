@@ -175,7 +175,7 @@ docker compose down
 
 ## Examples
 
-[![FastAPI & Gradio usage demo](screenshots/demo_001.png)](https://www.youtube.com/watch?v=0dzTBEz7FS0)
+[![FastAPI & Gradio usage demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=0dzTBEz7FS0)
 
 ---
 ![Logging](screenshots/demo_004.png)
